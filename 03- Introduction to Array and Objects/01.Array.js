@@ -5,4 +5,5 @@
  * 
  * Example: we need to store information of a picture so we will choose array because photo needs to store data in a continuous manner.
  * 
+ * for deleting key-value pair: delete x.name
  */

@@ -17,3 +17,4 @@
     - Basics of objects
     - How to add or remove key-value pair
     - Problem solving: count frequency of string characters
+    - String interpolation or String template
