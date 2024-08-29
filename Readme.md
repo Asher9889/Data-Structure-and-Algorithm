@@ -18,3 +18,10 @@
     - How to add or remove key-value pair
     - Problem solving: count frequency of string characters
     - String interpolation or String template
+    - How to loop over objects(Object.keys(obj), Object.values(obj), Object.entries(obj))
+    - for...in loop for objects
+    - High Order Function
+        - map
+        - filter
+        - reduce 
+    
