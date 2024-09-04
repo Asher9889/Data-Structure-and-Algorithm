@@ -24,4 +24,8 @@
         - map
         - filter
         - reduce 
-    
+- Problem Solving on Array
+    - Reverse an array with creating new array
+    - Merge sorted Array 
+    - Buy and sell stock
+    - Number diamond pattern

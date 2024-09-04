@@ -26,5 +26,6 @@ function totalPrice(arr){
     return result;
 }
 
+// price will contain sum of price.
 let price = (totalPrice(cart));
 console.log(price)
