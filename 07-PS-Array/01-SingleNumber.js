@@ -14,5 +14,5 @@ function singleNumber(arr){
     return console.log(result)
 }
 
-singleNumber(nums)
+singleNumber(nums) // output = 4;
 
