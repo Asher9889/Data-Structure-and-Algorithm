@@ -12,9 +12,9 @@ function countCommon(nums1) {
 
   for (let i = 0; i < nums1.length; i++) {
     if (frequencyNums1[nums1[i]]) {
-        frequencyNums1[nums1[i]]++;
+      frequencyNums1[nums1[i]]++;
     } else {
-        frequencyNums1[nums1[i]] = 1;
+      frequencyNums1[nums1[i]] = 1;
     }
   }
   console.log(frequencyNums1);
@@ -25,13 +25,11 @@ function countCommon(nums1) {
 
     if (frequencyNums1[element]) {
       frequencyNums2[element] = 1;
-    } 
+    }
   }
 
-  return console.log(Object.keys(frequencyNums2))
-//   console.log(frequencyNums2)
-
-
+  return console.log(Object.keys(frequencyNums2));
+  //   console.log(frequencyNums2)
 }
 
 countCommon(nums1);
