@@ -29,3 +29,6 @@
     - Merge sorted Array 
     - Buy and sell stock
     - Number diamond pattern
+- Sorting Algoriths
+    - Selection Sort
+    - Bubble Sort
