@@ -22,4 +22,4 @@ function mergeSort(arr, i, j) {
 
 let nums = [10,5,-2,4,0,4,78,25,-56,12]
 
-mergeSort(nums,0,9);
+mergeSort(nums,0,9); 
