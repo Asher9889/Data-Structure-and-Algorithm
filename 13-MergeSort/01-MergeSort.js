@@ -16,6 +16,7 @@ function mergeSort(arr, i, j) {
   let half = Math.floor((i + j) / 2);
   mergeSort(arr, i, half);
   mergeSort(arr, half + 1, j);
+  merge(arr, low, mid, high);
 
   //----> Till here we recursilevly tranform the rray into sub array. now each array is length of 1.
 }
