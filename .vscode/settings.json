@@ -1,0 +1,23 @@
+{
+    "editor.cursorBlinking": "smooth",
+    "github.copilot.chat.anthropic.useMessagesApi": false,
+    "github.copilot.chat.backgroundAgent.enabled": false,
+    "github.copilot.chat.claudeAgent.enabled": false,
+    "github.copilot.chat.cloudAgent.enabled": false,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+    "github.copilot.chat.customInstructionsInSystemMessage": false,
+    "github.copilot.chat.reviewSelection.enabled": false,
+    "github.copilot.chat.reviewAgent.enabled": false,
+    "github.copilot.chat.organizationInstructions.enabled": false,
+    "github.copilot.chat.organizationCustomAgents.enabled": false,
+    "github.copilot.editor.enableCodeActions": false,
+    "github.copilot.chat.useProjectTemplates": false,
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.nextEditSuggestions.extendedRange": false,
+    "github.copilot.nextEditSuggestions.fixes": false,
+    "github.copilot.renameSuggestions.triggerAutomatically": false,
+    "github.copilot.chat.anthropic.toolSearchTool.enabled": false,
+    "editor.aiStats.enabled": true,
+    "workbench.settings.showAISearchToggle": false,
+    "chat.disableAIFeatures": true
+}
