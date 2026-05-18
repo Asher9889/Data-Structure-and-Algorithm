@@ -1,71 +1,63 @@
-/**
- * Selection Sort. We find the best minimum elem for 0th index by comparing and at the last we swap.
- * 
- */
+let input = [5,1,4,2,3];
 
-const arr: number[] = [8, 3, 5, 2, 9];
+/**
+ * Question: What is Selection Sort?
+ * Answere: 1. Divide the array in two regions: 
+ *              - Sorted region.
+ *              - Unsorted region.
+ *          2. Assume the first elem of an unsorted region is minimum.
+ *          3. Traverse the remaining unsorted region and find the actual minimum element.
+ *          4. Swap the actual minimum element to first element of the unsorted region.
+ *          5. After each pass, Sorted region is grow by 1.
+ */
 
 /**
  * DRY RUN:
- * x = 0;
- *      y = 1; 3 < 8 True Swap  => [3,8,5,2,9]
- *      y = 2; 5 < 3 False NoSwap => [3,8,5,2,9]
- *      y = 3; 2 < 3 True Swap => [2,8,5,3,9]
- *      y = 4; 9 < 2 False NoSwap => [2,8,5,3,9]
- * x = 1;
- *      y = 2; 5 < 8 False NoSwap => [2,5,8,3,9]
- *      y = 3; 3 < 5 True Swap => [2,3,8,5,9]
- *      y = 4; 9 < 3 False NoSwap => [2,3,8,5,9]
- * x = 2;
- *      y = 3; 5 < 8 True Swap => [2,3,5,8,9]
- *      y = 4; 9 < 5 False NoSwap => [2,3,5,8,9]
- * x = 3;
- *      y = 4; 9 < 8 False NoSwap => [2,3,5,8,9]       
- * 
- * Current implementation is a Hybrid Apprach of Bubble + Selection Sort?
- * Why to swap immediately after comparison. 
- * Store the index, At the end Swap.
+ * x = 0; min = arr[x];  minElemIndex = x;
+ *      y = 1; 1 < 5 true minElemIndex = 1;
+ *      y = 2; 4 < 1 false 
+ *      y = 3; 2 < 1 false
+ *      y = 4; 3 < 1 false
+ *      
+ *      swap(0, 1);
+ *      [1,5,4,2,3];
+ * x = 1; min = arr[x]; minElemIndex = x;
+ *      y = 2; 4 < 5 true minElemIndex = 2;
+ *      y = 3; 4 < 2 true minElemIndex = 3;
+ *      y = 4; 3 < 2 false 
+ *      swap(1, 3);
+ *      [1,2,4,5,3]
+ * x = 2; min = arr[x]; minElemIndex = x;
+ *      y = 3; 5 < 4 false 
+ *      y = 4; 3 < 4 true minElemIndex = 4;
+ *      swap(2, 4);
+ *      [1,2,3,5,4];
+ * x = 3; min = arr[x] minElemIndex = x;
+ *      y = 4; 4 < 5 true minElemIndex = 4;
+ *      swap(3,4)
+ *      [1,2,3,4,5]
+ *      
  */
 
+export function selectionSort(arr:number[]): number []{
+    let n = arr.length;
 
-// Bubble + Selection Sort
-function hybridSelectionSort(arr: number[]): number[] {
-
-    if(arr.length <= 1) return arr;
-
-    for (let i = 0; i < arr.length; i++) {
-        for(let y = i + 1; y < arr.length; y++  ){
-            if(arr[y] < arr[i]){
-                let swap = arr[i];
-                arr[i] = arr[y];
-                arr[y] = swap;
+    for(let i = 0; i < n; i++ ){
+        let minElem = arr[i];
+        let minIndex = i;
+        for(let y = i + 1;  y < n; y++){
+            if(arr[y] < minElem){
+                minElem = arr[y];
+                minIndex = y;
             }
         }
+        let temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
     }
+
     return arr;
 
 }
-console.log(hybridSelectionSort(arr))
 
-// const arr: number[] = [8, 3, 5, 2, 9];
-
-/**
- * let isPossible = x;
- * x = 0;  // isPossible = y;  
- *      y = 1;  3 < 8; true; isPossibleIndex = 1;  
- *      y = 2;  5 < 3; false; isPossibleIndex = 1;  
- *      y = 3;  2 < 3; true; isPossibleIndex = 3;
- *      y = 4;  9 < 2; false isPossibleIndex = 3;
- *      if(arr[0] !== arr[isPossibleIndex]){
- *          temp = arr[0];
- *          arr[0] = arr[isPossibleIndex];
- *          arr[isPossibleIndex] = temp;  
- *      }
- */
-function selectionSort(arr:number[]): number[]{
-
-
-
-
-    return arr;
-}
+console.log(selectionSort(input))
