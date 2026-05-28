@@ -26,4 +26,4 @@ export function selectionSort(arr:number[]):number[]{
     return arr;
 }
 
-console.log(selectionSort(input))
+console.log(selectionSort(input));
