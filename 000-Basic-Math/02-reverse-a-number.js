@@ -46,7 +46,5 @@ function optimisedReversedNumber(num){
     }
 
     return isNegative ? -reverseNumber : reverseNumber
-
-
 }
 console.log(optimisedReversedNumber(1534236469))

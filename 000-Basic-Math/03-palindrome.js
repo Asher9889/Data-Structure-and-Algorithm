@@ -14,4 +14,4 @@ function isPalindrome(num){
     return reversedNumber === dup ? true : false;
 }
 
-console.log(isPalindrome(1221))
+console.log(isPalindrome(-1221))

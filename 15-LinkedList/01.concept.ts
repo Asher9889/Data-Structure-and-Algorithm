@@ -1,53 +1,96 @@
 /**
- * What is Linked List?
- * Ans: Linked list is a liner data structure which stored data and next memory reference inside each node and these connected with next memory refernce pointer. Main advantage of using an linked list is for inerstion an elem in the array we must have to shift an elem +1 position but in linked list we just need to create a node and attach it to it needed place.
- * Only Disadvantage is in array we can access any elem in o(1) tc. but in linkedlist we need to traverse from head to acess the elem which have o(n) tc.
- * 
- * Array need an contigour memory location but linked list nodes and be in any random location in heap.
+ * What is linked list?
+ * Answere: 1. It is a liner data structure made up of node.
+ * 2. Each node stores the data and reference to next node.
+ * 3. Unlike array, Node get stores in heap memory at a non-contigous fashion.
+ * 4. To access any elem we must need to traverse from head so it takes O(n) tc.
  */
 
-/**
- * Step 01: Create a node.
- * Step 02: Connect it to each other. using next keyword.
- * Remember next keyword will store the refernce to next node.
- */
 
 class Node {
     data: number;
     next: Node | null;
 
-    constructor(data:number, next=null){
+    constructor(data: number, next: Node | null = null) {
         this.data = data;
-        this.next = next
+        this.next = next;
     }
-
 }
 
-const head = new Node(1);
-const n2 = new Node(2);
-const tail = new Node(3);
 
-/**
- * Convert an Arrya to LL
- */
+function main(){
 
-const arr = [1,2,3,4,5]
+    let arr = [1,2,3,4,5];
 
-function convertArrtoLL(arr: number[]){
-    if (arr.length === 0) return null;
+    function convertArr2LL(){
+        const head = new Node(arr[0]);
+        let temp = head;
 
-    const head = new Node(arr[0]);
-    let temp = head;
-    for(let i = 1; i < arr.length; i++){
-        const newNode = new Node(arr[i]);
-        temp.next = newNode;
-        temp = newNode;
+        for(let i = 1;i < arr.length; i++){
+            const newNode = new Node(arr[i]);
+            temp.next = newNode;
+            temp = newNode;
+        }
+        return head;
     }
-    return head;
+
+    function printLL(head:Node){
+        if(!head) return head;
+        let temp:Node | null = head;
+        let values = ""
+        while(temp){
+            values = (values + temp.data + " => ");
+            temp = temp.next;
+        }
+
+        console.log(values);
+    }
+
+    function removeFromHead(head:Node){
+        /**
+         * 1. Check head is correct node with value.
+         * 2. First Check atleast two nodes are present.
+         */
+        if(!head || head.next === null) return head;
+        // let temp = head; // garbage collector will collect will no manually need to free uo the memory.
+        let newHead = head.next;
+        return newHead;
+    }
+
+
+    function removeFromTail(head:Node){
+        /**
+         * 1. First check atleast ll has two nodes.
+         * 2. Iterat over ll and check for this cond temp.next.next === null it means it is a last node
+         * 
+         */
+        if(!head || head.next === null) return head;
+
+        let temp = head;
+        while(temp.next!.next !== null){
+            temp = temp.next!;
+        }
+
+        temp.next = null;
+
+        return head;
+
+    }
+
+
+    const head = convertArr2LL()
+    printLL(head);
+    removeFromTail(head);
+    printLL(head);
+
+
+
+
 }
+main()
 
-const ll = convertArrtoLL(arr);
 
-console.log(JSON.stringify(ll));
 
-export {}
+
+
+export { }
