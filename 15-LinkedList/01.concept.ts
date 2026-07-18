@@ -18,15 +18,15 @@ class Node {
 }
 
 
-function main(){
+function main() {
 
-    let arr = [1,2,3,4,5];
+    let arr = [1, 2, 3];
 
-    function convertArr2LL(){
+    function convertArr2LL() {
         const head = new Node(arr[0]);
         let temp = head;
 
-        for(let i = 1;i < arr.length; i++){
+        for (let i = 1; i < arr.length; i++) {
             const newNode = new Node(arr[i]);
             temp.next = newNode;
             temp = newNode;
@@ -34,11 +34,11 @@ function main(){
         return head;
     }
 
-    function printLL(head:Node){
-        if(!head) return head;
-        let temp:Node | null = head;
+    function printLL(head: Node) {
+        if (!head) return head;
+        let temp: Node | null = head;
         let values = ""
-        while(temp){
+        while (temp) {
             values = (values + temp.data + " => ");
             temp = temp.next;
         }
@@ -46,44 +46,66 @@ function main(){
         console.log(values);
     }
 
-    function removeFromHead(head:Node){
+    function removeFromHead(head: Node) {
         /**
          * 1. Check head is correct node with value.
          * 2. First Check atleast two nodes are present.
          */
-        if(!head || head.next === null) return head;
+        if (!head || head.next === null) return head;
         // let temp = head; // garbage collector will collect will no manually need to free uo the memory.
         let newHead = head.next;
         return newHead;
     }
 
+    // 1 => 2 => 3 => 4 => 5
 
-    function removeFromTail(head:Node){
-        /**
-         * 1. First check atleast ll has two nodes.
-         * 2. Iterat over ll and check for this cond temp.next.next === null it means it is a last node
-         * 
-         */
-        if(!head || head.next === null) return head;
-
+    function removeFromTail(head: Node) {
+        if (!head || head.next === null) return null;
         let temp = head;
-        while(temp.next!.next !== null){
+
+        while (temp.next!.next !== null) { // check is next to next null or not? if found it means got the 2nd last elem
             temp = temp.next!;
         }
 
         temp.next = null;
+        return head;
+    }
+
+    // 1 => 2 => 3 => 4 => 5
+    function removeK(head: Node, k: number) {
+        if (head === null) return null;
+
+        if (k === 1) {
+            const newHead = head.next;
+            return newHead;
+        }
+
+        let cnt = 0;
+        let temp = head;
+        let prev: Node | null = null;
+
+        while(temp){
+            cnt++;
+
+            if(k === cnt){
+                prev!.next = prev!.next!.next;
+                break;
+            }
+
+            prev = temp;
+            temp = temp.next!; 
+        }
 
         return head;
-
     }
+
 
 
     const head = convertArr2LL()
     printLL(head);
-    removeFromTail(head);
+    // removeFromTail(head);
+    removeK(head, 3)
     printLL(head);
-
-
 
 
 }
